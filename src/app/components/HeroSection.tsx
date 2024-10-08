@@ -1,20 +1,19 @@
 "use client";
 import React, { useState } from "react";
-// import GameModal from "./GameModal";
+import GameModal from "./GameModal";
 import WaitModal from "./waitModal";
 import GameDescriptionModal from "./GameDescModal";
-import OpenLevelModal from "./OpenLevelModal";
+// import OpenLevelModal from "./OpenLevelModal";
 
 const HeroSection = () => {
   // const [modal, setmodal] = useState(false);
   // const [create, setcreate] = useState(true);
   // const [value, setValue] = useState<number>(0);
-  
-  // const [gameModalOpen, setGameModalOpen] = useState(false);
+
+  const [gameModalOpen, setGameModalOpen] = useState(false);
   const [multiplayerModal, setMultiplayerModal] = useState(false);
   const [descModal, setDescModal] = useState(true);
-  const [openLevelModal, setOpenLevelModal] = useState(false);
-
+  // const [openLevelModal, setOpenLevelModal] = useState(false);
 
   // const handleIncrement = () => {
   //   setValue(value + 100);
@@ -27,7 +26,11 @@ const HeroSection = () => {
     <div className="bg-[url('../../public/homebg.jpg')] w-full h-[108vh] bg-center bg-cover max-md:h-[130vh] ">
       <div className="pt-20 w-10/12 m-auto flex justify-around h-screen max-md:flex-col">
         <div className="bg-[#ffffff60] my-auto rounded-xl text-center shadow-lg w-[350px] max-md:w-[300px] max-md:mx-auto max-md:mt-10">
-          <img src="multi.png" alt="" className="w-[220px] mx-auto my-5 max-md:w-[200px]" />
+          <img
+            src="multi.png"
+            alt=""
+            className="w-[220px] mx-auto my-5 max-md:w-[200px]"
+          />
           <button
             onClick={() => setMultiplayerModal(true)}
             className="bg-slate-900 text-gray-300 m-auto flex mb-8 py-3 justify-center rounded-xl w-10/12 uppercase font-regular font-mono text-2xl max-md:text-xl"
@@ -36,19 +39,19 @@ const HeroSection = () => {
           </button>
         </div>
         <div className="bg-[#ffffff60] my-auto rounded-xl text-center shadow-lg w-[350px] max-md:w-[300px] max-md:mx-auto max-md:my-10">
-          <img src="solo.png" alt="" className="w-[220px] mx-auto my-5 max-md:w-[180px]" />
+          <img
+            src="solo.png"
+            alt=""
+            className="w-[220px] mx-auto my-5 max-md:w-[180px]"
+          />
           <button
-            // onClick={() => setGameModalOpen(true)}
-            onClick={() => setOpenLevelModal(true)}
+            onClick={() => setGameModalOpen(true)}
+            // onClick={() => setOpenLevelModal(true)}
             className="bg-slate-900 m-auto text-gray-300 font-mono  flex mb-8 py-3 justify-center rounded-xl w-10/12 uppercase font-regular text-2xl mx-auto max-md:text-xl"
           >
             Play solo
           </button>
         </div>
-
-         
-        
-       
       </div>
 
       {/* ========== Modal for Play with Friends ============ */}
@@ -126,10 +129,19 @@ const HeroSection = () => {
         </div>
       </div> */}
 
-      <WaitModal isOpen={multiplayerModal} onClose={() => setMultiplayerModal(false)} />
-      {/* <GameModal isOpen={gameModalOpen} onClose={() => setGameModalOpen(false)} /> */}
-      <GameDescriptionModal isOpen={descModal} onClose={() => setDescModal(false)} />
-      <OpenLevelModal isOpen={openLevelModal} onClose={() => setOpenLevelModal(false)} />     
+      <WaitModal
+        isOpen={multiplayerModal}
+        onClose={() => setMultiplayerModal(false)}
+      />
+      <GameModal isOpen={gameModalOpen} onClose={() => setGameModalOpen(false)} />
+      <GameDescriptionModal
+        isOpen={descModal}
+        onClose={() => setDescModal(false)}
+      />
+      {/* <OpenLevelModal
+        isOpen={openLevelModal}
+        onClose={() => setOpenLevelModal(false)}
+      /> */}
     </div>
   );
 };
