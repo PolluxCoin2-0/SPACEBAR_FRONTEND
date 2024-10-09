@@ -1,19 +1,19 @@
 "use client";
 import React, { useState } from "react";
-import GameModal from "./GameModal";
+// import GameModal from "./GameModal";
 import WaitModal from "./waitModal";
 import GameDescriptionModal from "./GameDescModal";
-// import OpenLevelModal from "./OpenLevelModal";
+import OpenLevelModal from "./OpenLevelModal";
 
 const HeroSection = () => {
   // const [modal, setmodal] = useState(false);
   // const [create, setcreate] = useState(true);
   // const [value, setValue] = useState<number>(0);
 
-  const [gameModalOpen, setGameModalOpen] = useState(false);
+  // const [gameModalOpen, setGameModalOpen] = useState(false);
   const [multiplayerModal, setMultiplayerModal] = useState(false);
   const [descModal, setDescModal] = useState(true);
-  // const [openLevelModal, setOpenLevelModal] = useState(false);
+  const [openLevelModal, setOpenLevelModal] = useState(false);
 
   // const handleIncrement = () => {
   //   setValue(value + 100);
@@ -45,8 +45,8 @@ const HeroSection = () => {
             className="w-[220px] mx-auto my-5 max-md:w-[180px]"
           />
           <button
-            onClick={() => setGameModalOpen(true)}
-            // onClick={() => setOpenLevelModal(true)}
+            // onClick={() => setGameModalOpen(true)}
+            onClick={() => setOpenLevelModal(true)}
             className="bg-slate-900 m-auto text-gray-300 font-mono  flex mb-8 py-3 justify-center rounded-xl w-10/12 uppercase font-regular text-2xl mx-auto max-md:text-xl"
           >
             Play solo
@@ -133,15 +133,15 @@ const HeroSection = () => {
         isOpen={multiplayerModal}
         onClose={() => setMultiplayerModal(false)}
       />
-      <GameModal isOpen={gameModalOpen} onClose={() => setGameModalOpen(false)} />
+      {/* <GameModal isOpen={gameModalOpen} onClose={() => setGameModalOpen(false)} /> */}
       <GameDescriptionModal
         isOpen={descModal}
         onClose={() => setDescModal(false)}
       />
-      {/* <OpenLevelModal
+      <OpenLevelModal
         isOpen={openLevelModal}
         onClose={() => setOpenLevelModal(false)}
-      /> */}
+      />
     </div>
   );
 };
