@@ -1,7 +1,8 @@
-// import { Provider } from "react-redux";
+'use Client';
+
+
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
-// import store from "./redux/Store";
 
 export default function app() {
   return (
