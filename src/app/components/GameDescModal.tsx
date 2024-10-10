@@ -26,7 +26,7 @@ const GameDescriptionModal: React.FC<GameDescriptionModalProps> = ({
     <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-lg flex justify-center items-center z-50">
       <div 
       className="relative w-[90%] max-w-[800px] h-[400px] mx-auto bg-gray-800 bg-opacity-90 rounded-lg p-6 shadow-lg flex flex-col items-center"
-      onMouseMove={(e)=>handleMouseMove(e)}
+      onMouseMove={(e: any) => handleMouseMove(e)}
          style={{
           boxShadow:
             "0 2px 20px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.6)", // White shadow with moderate opacity
