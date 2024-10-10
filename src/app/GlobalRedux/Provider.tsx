@@ -3,11 +3,7 @@
 import { Provider } from 'react-redux';
 import { store } from './store';
 
-interface ProvidersProps {
-  children: any; // Define 'children' with the 'any' type
-}
-
-export function Providers({ children }: ProvidersProps) {
+export function Providers({ children }: { children: any }) { // Explicitly set 'children' type as 'any'
   return (
     <Provider store={store}>
       {children}
