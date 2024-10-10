@@ -62,7 +62,7 @@ const Navbar = () => {
               "0 2px 20px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.6)", // White shadow with moderate opacity
             background: `radial-gradient(circle at ${bgPosition.x}px ${bgPosition.y}px, rgba(235, 191, 14, 0.7), transparent)`, // Moving background effect
           }}
-          onMouseMove={handleMouseMove}
+          onMouseMove={(e: any) => handleMouseMove(e)}
           onClick={getPolinkweb} // Call the function on button click
         >
           {walletAddress ? walletAddress : "CONNECT TO POLINK"}
