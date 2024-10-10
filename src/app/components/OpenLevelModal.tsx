@@ -12,7 +12,7 @@ const OpenLevelModal: React.FC<OpenLevelModalProps> = ({ isOpen, onClose }) => {
     const [gameModalOpen, setGameModalOpen] = useState(false);
     const [bgPosition, setBgPosition] = useState({ x: 0, y: 0 });
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = ({e} :{e : any}) => {
       const { clientX, clientY } = e;
       const { left, top } = e.currentTarget.getBoundingClientRect();
       const x = clientX - left;
@@ -23,7 +23,7 @@ const OpenLevelModal: React.FC<OpenLevelModalProps> = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-lg flex justify-center items-center z-50">
       <div 
-      onMouseMove={handleMouseMove}
+      onMouseMove={(e: any) => handleMouseMove(e)}
       className="relative w-[90%] max-w-[800px] h-[400px] mx-auto bg-gray-800 bg-opacity-90 rounded-lg p-6 shadow-lg flex flex-col items-center"
         style={{
             boxShadow:
@@ -44,7 +44,7 @@ const OpenLevelModal: React.FC<OpenLevelModalProps> = ({ isOpen, onClose }) => {
           <button
             type="button"
             onClick={() => setGameModalOpen(true)}
-            onMouseMove={handleMouseMove}
+            onMouseMove={(e: any) => handleMouseMove(e)}
             className="px-24 font-semibold bg-slate-900 text-gray-300 font-mono 
              flex mb-8 py-3 justify-center rounded-xl w-10/12 
              uppercase font-regular text-2xl mx-auto 
