@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import type { RootState } from "../GlobalRedux/store";
 import { useSelector, useDispatch } from "react-redux";
-import { walletAddress } from "../GlobalRedux/Features/wallet/walletSlice";
+// import { walletAddress } from "../GlobalRedux/Features/wallet/walletSlice";
 import { toast } from "react-toastify";
 import { setWalletAddress } from "../GlobalRedux/Features/wallet/walletSlice";
 

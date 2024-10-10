@@ -481,102 +481,102 @@ const score = {
   },
 };
 
-// function draw() {
-//     const gradient = ctx.createLinearGradient(0, 0, cvs.width, cvs.height);
-//     gradient.addColorStop(0, "#0a0f0f");
-//     gradient.addColorStop(0.5, "#1c3d4d");
-//     gradient.addColorStop(1, "#040d0d");
+function draw() {
+    const gradient = ctx.createLinearGradient(0, 0, cvs.width, cvs.height);
+    gradient.addColorStop(0, "#0a0f0f");
+    gradient.addColorStop(0.5, "#1c3d4d");
+    gradient.addColorStop(1, "#040d0d");
 
-//     ctx.fillStyle = gradient;
-//     ctx.fillRect(0, 0, cvs.width, cvs.height);
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, cvs.width, cvs.height);
 
-//     lazer.draw();
-//     wallup.draw();
-//     walldown.draw();
-//     man.draw();
-//     getReady.draw();
-//     gameOver.draw();
-//     score.draw();
+    lazer.draw();
+    wallup.draw();
+    walldown.draw();
+    man.draw();
+    getReady.draw();
+    gameOver.draw();
+    score.draw();
 
-// }
+}
 
 // Load the external background image
 
-const bgImage = new Image();
-bgImage.src = "img/fef.jpg"; // Replace with the correct path
+// const bgImage = new Image();
+// bgImage.src = "img/fef.jpg"; // Replace with the correct path
 
-let bgX = 0; // Track the background's x-position
-const bgSpeed = 2; // Adjust the speed of the background movement
+// let bgX = 0; // Track the background's x-position
+// const bgSpeed = 2; // Adjust the speed of the background movement
 
-bgImage.onload = function () {
-  console.log("Background image loaded");
-  loop(); // Start the game loop only after the background image is loaded
-};
+// bgImage.onload = function () {
+//   console.log("Background image loaded");
+//   loop(); // Start the game loop only after the background image is loaded
+// };
 
-bgImage.onerror = function () {
-  console.error("Failed to load background image");
-};
+// bgImage.onerror = function () {
+//   console.error("Failed to load background image");
+// };
 
-function draw() {
-  ctx.globalAlpha = 0.9; // Set lower opacity for the background (e.g., 30%)
+// function draw() {
+//   ctx.globalAlpha = 0.9; // Set lower opacity for the background (e.g., 30%)
 
-  // Draw the first instance of the background
-  ctx.drawImage(bgImage, bgX, 0, cvs.width, cvs.height);
+//   // Draw the first instance of the background
+//   ctx.drawImage(bgImage, bgX, 0, cvs.width, cvs.height);
 
-  // Draw the second instance right after the first one to create the infinite effect
-  ctx.drawImage(bgImage, bgX + cvs.width, 0, cvs.width, cvs.height);
+//   // Draw the second instance right after the first one to create the infinite effect
+//   ctx.drawImage(bgImage, bgX + cvs.width, 0, cvs.width, cvs.height);
 
-  // 2. Add a semi-transparent overlay to further darken the background
-  ctx.globalAlpha = 1; // Reset alpha to 1 for full opacity for other elements
-  ctx.fillStyle = "rgba(0, 0, 0, 0.7)"; // A black overlay with 50% opacity
-  ctx.fillRect(0, 0, cvs.width, cvs.height); // Draw the overlay over the entire canvas
+//   // 2. Add a semi-transparent overlay to further darken the background
+//   ctx.globalAlpha = 1; // Reset alpha to 1 for full opacity for other elements
+//   ctx.fillStyle = "rgba(0, 0, 0, 0.7)"; // A black overlay with 50% opacity
+//   ctx.fillRect(0, 0, cvs.width, cvs.height); // Draw the overlay over the entire canvas
 
-  // Then draw other game elements
-  lazer.draw();
-  wallup.draw();
-  walldown.draw();
-  man.draw();
-  getReady.draw();
-  gameOver.draw();
-  score.draw();
-}
-
-function update() {
-  // Move the background to the left
-  bgX -= bgSpeed;
-
-  // If the first image scrolls off the screen, reset its position
-  if (bgX <= -cvs.width) {
-    bgX = 0;
-  }
-
-  man.update();
-  walldown.update();
-  wallup.update();
-  lazer.update();
-}
-
-function loop() {
-  update();
-  draw();
-  frames++;
-
-  requestAnimationFrame(loop);
-}
-
+//   // Then draw other game elements
+//   lazer.draw();
+//   wallup.draw();
+//   walldown.draw();
+//   man.draw();
+//   getReady.draw();
+//   gameOver.draw();
+//   score.draw();
+// }
 
 // function update() {
-//     man.update();
-//     walldown.update();
-//     wallup.update();
-//     lazer.update();
+//   // Move the background to the left
+//   bgX -= bgSpeed;
+
+//   // If the first image scrolls off the screen, reset its position
+//   if (bgX <= -cvs.width) {
+//     bgX = 0;
+//   }
+
+//   man.update();
+//   walldown.update();
+//   wallup.update();
+//   lazer.update();
 // }
 
 // function loop() {
-//     update();
-//     draw();
-//     frames++;
+//   update();
+//   draw();
+//   frames++;
 
-//     requestAnimationFrame(loop);
+//   requestAnimationFrame(loop);
 // }
-// loop();
+
+
+function update() {
+    man.update();
+    walldown.update();
+    wallup.update();
+    lazer.update();
+}
+
+function loop() {
+    update();
+    draw();
+    frames++;
+
+    requestAnimationFrame(loop);
+}
+loop();
