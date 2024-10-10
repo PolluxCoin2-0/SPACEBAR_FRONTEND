@@ -7,6 +7,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { setWalletAddress } from "../GlobalRedux/Features/wallet/walletSlice";
 
+
+declare global {
+  interface Window {
+    pox: any; // Declare pox as any (or replace `any` with the appropriate type if known)
+  }
+}
+
 const Navbar = () => {
   const [bgPosition, setBgPosition] = useState({ x: 0, y: 0 });
 
