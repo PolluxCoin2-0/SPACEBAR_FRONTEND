@@ -10,7 +10,7 @@ import { setWalletAddress } from "../GlobalRedux/Features/wallet/walletSlice";
 const Navbar = () => {
   const [bgPosition, setBgPosition] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = ({e} : {e : any}) => {
     const { clientX, clientY } = e;
     const { left, top } = e.currentTarget.getBoundingClientRect();
     const x = clientX - left;
